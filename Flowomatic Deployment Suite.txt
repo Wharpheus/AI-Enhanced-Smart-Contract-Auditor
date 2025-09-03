@@ -1,0 +1,21 @@
+flowomatic-deployment-suite/
+├── backend/                  # Flask audit engine
+│   ├── app.py                # Main API logic
+│   ├── flowomatic/           # Flowomatic integration
+│   │   ├── flowomaticCoinsProcessor.js
+│   │   ├── flowomaticEventRouter.js
+│   └── agents/               # Agent executors
+│       ├── SmartContractAgent.ts
+│       ├── smart_contract_deployment_pipeline_6b5413_Agent.ts
+│       ├── agent_scaffolding_blueprint_3856f6_Agent.ts
+├── frontend/                 # Next.js interface
+│   ├── components/
+│   │   ├── AuditButton.tsx
+│   │   ├── ScaffoldButton.tsx
+│   │   ├── DeployButton.tsx
+│   │   └── FlowomaticStatus.tsx
+├── runtime-files/
+│   ├── agents/               # Scaffolded agent files
+│   ├── mindmaps/             # Scroll logs
+│   └── agent_registry.json   # Full agent manifest
+├── .env                      # Your config file
