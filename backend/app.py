@@ -16,7 +16,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Configure OpenAI
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('NEW_VARIABLE_NAME')
 
 class SmartContractAuditor:
     def __init__(self):

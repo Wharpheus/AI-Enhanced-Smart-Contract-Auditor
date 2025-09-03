@@ -38,7 +38,7 @@ fi
 
 if [ ! -f "backend/.env" ]; then
     echo "📝 Creating backend environment file..."
-    echo "OPENAI_API_KEY=your_openai_api_key_here" > backend/.env
+    echo "NEW_VARIABLE_NAME=your_openai_api_key_here" > backend/.env
     echo "FLASK_ENV=development" >> backend/.env
     echo "FLASK_DEBUG=True" >> backend/.env
     echo "HOST=0.0.0.0" >> backend/.env

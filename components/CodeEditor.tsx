@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { Upload, FileText } from 'lucide-react'
-import { useAudit } from '@/contexts/AuditContext'
+import React, { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Upload, FileText } from "lucide-react";
+import { useAudit } from "@/contexts/AuditContext";
 
 const CodeEditor: React.FC = () => {
-  const { state, setCode } = useAudit()
-  const [code, setLocalCode] = useState(state.code)
+  const { state, setCode } = useAudit();
+  const [code, setLocalCode] = useState(state.code);
 
   const handleCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newCode = e.target.value
-    setLocalCode(newCode)
-    setCode(newCode)
-  }
+    const newCode = e.target.value;
+    setLocalCode(newCode);
+    setCode(newCode);
+  };
 
   return (
     <div className="space-y-4">
@@ -33,7 +33,7 @@ const CodeEditor: React.FC = () => {
           </button>
         </div>
       </div>
-      
+
       <div className="relative">
         <div className="bg-surface rounded-lg border border-surface-tertiary overflow-hidden">
           {/* Editor Header */}
@@ -45,7 +45,7 @@ const CodeEditor: React.FC = () => {
               <span className="text-text-muted text-sm ml-2">contract.sol</span>
             </div>
           </div>
-          
+
           {/* Code Area */}
           <div className="relative">
             <textarea
@@ -54,18 +54,18 @@ const CodeEditor: React.FC = () => {
               className="w-full h-48 bg-surface text-text-primary p-4 font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
               placeholder="Paste your Solidity contract here..."
             />
-            
+
             {/* Syntax Highlighting Overlay */}
             <div className="absolute inset-0 pointer-events-none">
               <SyntaxHighlighter
                 language="solidity"
                 style={tomorrow}
                 customStyle={{
-                  background: 'transparent',
+                  background: "transparent",
                   margin: 0,
-                  padding: '1rem',
-                  fontSize: '0.875rem',
-                  fontFamily: 'Fira Code, Monaco, Consolas, monospace',
+                  padding: "1rem",
+                  fontSize: "0.875rem",
+                  fontFamily: "Fira Code, Monaco, Consolas, monospace",
                 }}
                 showLineNumbers
                 wrapLines
@@ -77,7 +77,7 @@ const CodeEditor: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CodeEditor 
+export default CodeEditor;

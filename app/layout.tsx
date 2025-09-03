@@ -1,19 +1,24 @@
 // app/layout.tsx
-import './globals.css'
-import { Inter } from 'next/font/google'
-import Header from '@/components/Header'
-import FloatingParticles from '@/components/FloatingParticles'
-import DashboardPanel from '@/components/DashboardPanel' // 🧩 Injected
-import { AuditProvider } from '@/contexts/AuditContext'   // 🧠 Context wrapper
+import "./globals.css";
+import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import FloatingParticles from "@/components/FloatingParticles";
+import DashboardPanel from "@/components/DashboardPanel"; // 🧩 Injected
+import { AuditProvider } from "@/contexts/AuditContext"; // 🧠 Context wrapper
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'AI Smart Contract Auditor',
-  description: 'Scroll-backed audit cockpit powered by GPT-4, Slither, and Flowomatic',
-}
+  title: "AI Smart Contract Auditor",
+  description:
+    "Scroll-backed audit cockpit powered by GPT-4, Slither, and Flowomatic",
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -29,5 +34,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </AuditProvider>
       </body>
     </html>
-  )
+  );
 }
