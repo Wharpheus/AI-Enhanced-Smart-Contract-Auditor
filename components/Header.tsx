@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { Shield, Brain, Zap } from 'lucide-react'
+import React from "react";
+import { Shield, Brain, Zap } from "lucide-react";
 
 const Header: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const Header: React.FC = () => {
               <div className="w-3 h-3 rounded-full bg-warning"></div>
               <div className="w-3 h-3 rounded-full bg-success"></div>
             </div>
-            
+
             {/* URL bar */}
             <div className="bg-surface-tertiary rounded-lg px-4 py-2 flex-1 max-w-md">
               <span className="text-text-muted text-sm font-mono">
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
               </span>
             </div>
           </div>
-          
+
           {/* Title and icons */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
                 Smart Contract Auditor
               </span>
             </div>
-            
+
             <div className="flex items-center space-x-2 text-text-secondary">
               <Brain className="w-4 h-4" />
               <span className="text-xs">GPT-4</span>
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header 
+export default Header;

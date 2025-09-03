@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { Search, Loader2 } from 'lucide-react'
-import { useAudit } from '@/contexts/AuditContext'
+import React from "react";
+import { Search, Loader2 } from "lucide-react";
+import { useAudit } from "@/contexts/AuditContext";
 
 const AuditButton: React.FC = () => {
-  const { state, startAudit } = useAudit()
+  const { state, startAudit } = useAudit();
   return (
     <div className="flex justify-center pt-4">
       <button
@@ -14,9 +14,10 @@ const AuditButton: React.FC = () => {
         className={`
           relative px-8 py-3 rounded-full font-semibold text-white
           transition-all duration-300 transform hover:scale-105
-          ${state.isAnalyzing 
-            ? 'bg-surface-tertiary cursor-not-allowed' 
-            : 'bg-primary hover:bg-primary-dark glow-effect'
+          ${
+            state.isAnalyzing
+              ? "bg-surface-tertiary cursor-not-allowed"
+              : "bg-primary hover:bg-primary-dark glow-effect"
           }
         `}
       >
@@ -33,7 +34,7 @@ const AuditButton: React.FC = () => {
         )}
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default AuditButton 
+export default AuditButton;

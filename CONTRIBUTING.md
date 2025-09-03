@@ -2,17 +2,6 @@
 
 Thank you for your interest in contributing to our AI-Enhanced Smart Contract Auditor! This document provides guidelines and information for contributors.
 
-## 📋 Table of Contents
-
-- [Code of Conduct](#code-of-conduct)
-- [How Can I Contribute?](#how-can-i-contribute)
-- [Development Setup](#development-setup)
-- [Coding Standards](#coding-standards)
-- [Testing Guidelines](#testing-guidelines)
-- [Pull Request Process](#pull-request-process)
-- [Issue Reporting](#issue-reporting)
-- [Release Process](#release-process)
-
 ## 📜 Code of Conduct
 
 This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code.
@@ -36,24 +25,28 @@ This project and everyone participating in it is governed by our Code of Conduct
 ### Types of Contributions
 
 #### 🐛 Bug Reports
+
 - Report bugs using the GitHub issue tracker
 - Include detailed steps to reproduce the issue
 - Provide system information and error logs
 - Check existing issues before creating new ones
 
 #### 💡 Feature Requests
+
 - Suggest new features through GitHub issues
 - Explain the use case and expected behavior
 - Consider the impact on existing functionality
 - Provide mockups or examples if possible
 
 #### 📝 Documentation
+
 - Improve existing documentation
 - Add missing documentation for features
 - Fix typos and grammatical errors
 - Update outdated information
 
 #### 🔧 Code Contributions
+
 - Fix bugs and implement features
 - Improve code quality and performance
 - Add tests for new functionality
@@ -80,16 +73,18 @@ This project and everyone participating in it is governed by our Code of Conduct
 ### Local Development
 
 1. **Fork and Clone**
+
    ```bash
    git clone https://github.com/yourusername/ai-smart-contract-auditor.git
    cd ai-smart-contract-auditor
    ```
 
 2. **Install Dependencies**
+
    ```bash
    # Frontend dependencies
    npm install
-   
+
    # Backend dependencies
    cd backend
    python -m venv venv
@@ -99,11 +94,12 @@ This project and everyone participating in it is governed by our Code of Conduct
    ```
 
 3. **Environment Setup**
+
    ```bash
    # Frontend
    cp .env.example .env.local
    # Edit .env.local with your configuration
-   
+
    # Backend
    cd backend
    cp env.example .env
@@ -111,10 +107,11 @@ This project and everyone participating in it is governed by our Code of Conduct
    ```
 
 4. **Start Development Servers**
+
    ```bash
    # Frontend (in project root)
    npm run dev
-   
+
    # Backend (in backend directory)
    python app.py
    ```
@@ -139,96 +136,10 @@ This project and everyone participating in it is governed by our Code of Conduct
 
 ### Frontend Standards (TypeScript/React)
 
-#### Code Style
-```typescript
-// Use TypeScript for type safety
-interface AuditResult {
-  vulnerabilities: Vulnerability[];
-  score: number;
-  recommendations: string[];
-}
-
-// Use functional components with hooks
-const AuditButton: React.FC<AuditButtonProps> = ({ onAudit, disabled }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  
-  const handleClick = async () => {
-    setIsLoading(true);
-    try {
-      await onAudit();
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  return (
-    <button 
-      onClick={handleClick}
-      disabled={disabled || isLoading}
-      className="btn btn-primary"
-    >
-      {isLoading ? 'Analyzing...' : 'Audit Contract'}
-    </button>
-  );
-};
-```
-
-#### Naming Conventions
-- **Components**: PascalCase (`AuditButton.tsx`)
-- **Files**: PascalCase for components, camelCase for utilities
-- **Variables**: camelCase (`auditResult`)
-- **Constants**: UPPER_SNAKE_CASE (`MAX_FILE_SIZE`)
-- **Types**: PascalCase (`AuditResult`)
-
-#### File Structure
-```
-components/
-├── AuditButton/
-│   ├── index.tsx
-│   ├── AuditButton.test.tsx
-│   └── types.ts
-├── CodeEditor/
-│   ├── index.tsx
-│   └── CodeEditor.test.tsx
-```
-
-### Backend Standards (Python/Flask)
-
-#### Code Style
-```python
-# Use type hints
-from typing import Dict, List, Optional
-
-class SmartContractAuditor:
-    def __init__(self) -> None:
-        self.analysis_results: Dict[str, any] = {}
-    
-    def analyze_contract(self, code: str) -> Dict[str, any]:
-        """Analyze a smart contract for vulnerabilities.
-        
-        Args:
-            code: The Solidity contract code
-            
-        Returns:
-            Dictionary containing analysis results
-        """
-        try:
-            # Implementation
-            return {"status": "success", "results": []}
-        except Exception as e:
-            return {"status": "error", "message": str(e)}
-```
-
-#### Naming Conventions
-- **Classes**: PascalCase (`SmartContractAuditor`)
-- **Functions**: snake_case (`analyze_contract`)
-- **Variables**: snake_case (`analysis_results`)
-- **Constants**: UPPER_SNAKE_CASE (`MAX_FILE_SIZE`)
-- **Files**: snake_case (`smart_contract_auditor.py`)
-
 ### Documentation Standards
 
 #### Code Comments
+
 ```typescript
 /**
  * Analyzes a smart contract for security vulnerabilities
@@ -238,13 +149,14 @@ class SmartContractAuditor:
  */
 async function analyzeContract(
   contractCode: string,
-  options: AnalysisOptions = {}
+  options: AnalysisOptions = {},
 ): Promise<AnalysisResult> {
   // Implementation
 }
 ```
 
 #### README Updates
+
 - Update README.md for new features
 - Include usage examples
 - Document configuration changes
@@ -254,7 +166,8 @@ async function analyzeContract(
 
 ### Frontend Testing
 
-#### Unit Tests
+#### Frontend Unit Tests
+
 ```typescript
 import { render, screen, fireEvent } from '@testing-library/react';
 import AuditButton from './AuditButton';
@@ -263,7 +176,7 @@ describe('AuditButton', () => {
   it('should call onAudit when clicked', () => {
     const mockOnAudit = jest.fn();
     render(<AuditButton onAudit={mockOnAudit} />);
-    
+
     fireEvent.click(screen.getByText('Audit Contract'));
     expect(mockOnAudit).toHaveBeenCalled();
   });
@@ -271,9 +184,10 @@ describe('AuditButton', () => {
 ```
 
 #### Integration Tests
+
 ```typescript
-describe('Contract Analysis Flow', () => {
-  it('should analyze contract and display results', async () => {
+describe("Contract Analysis Flow", () => {
+  it("should analyze contract and display results", async () => {
     // Test complete user flow
   });
 });
@@ -282,6 +196,7 @@ describe('Contract Analysis Flow', () => {
 ### Backend Testing
 
 #### Unit Tests
+
 ```python
 import pytest
 from app import SmartContractAuditor
@@ -292,7 +207,7 @@ class TestSmartContractAuditor:
         code = "pragma solidity ^0.8.0; contract Test {}"
         result = auditor.analyze_syntax(code)
         assert result['valid'] is True
-    
+
     def test_analyze_syntax_invalid_contract(self):
         auditor = SmartContractAuditor()
         code = "invalid code"
@@ -301,6 +216,7 @@ class TestSmartContractAuditor:
 ```
 
 #### API Tests
+
 ```python
 def test_audit_endpoint(client):
     response = client.post('/api/audit', json={
@@ -329,44 +245,6 @@ def test_audit_endpoint(client):
 
 ### PR Guidelines
 
-#### Title Format
-```
-type(scope): brief description
-
-Examples:
-feat(audit): add reentrancy detection
-fix(ui): resolve button alignment issue
-docs(readme): update installation instructions
-```
-
-#### Description Template
-```markdown
-## Description
-Brief description of changes
-
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Performance improvement
-- [ ] Refactoring
-
-## Testing
-- [ ] Unit tests added/updated
-- [ ] Integration tests added/updated
-- [ ] Manual testing completed
-
-## Screenshots (if applicable)
-Add screenshots for UI changes
-
-## Checklist
-- [ ] Code follows style guidelines
-- [ ] Self-review completed
-- [ ] Documentation updated
-- [ ] Tests added/updated
-- [ ] No breaking changes
-```
-
 ### Review Process
 
 1. **Automated Checks**: CI/CD pipeline runs tests
@@ -381,26 +259,32 @@ Add screenshots for UI changes
 
 ```markdown
 ## Bug Description
+
 Clear description of the bug
 
 ## Steps to Reproduce
+
 1. Go to '...'
 2. Click on '...'
 3. Scroll down to '...'
 4. See error
 
 ## Expected Behavior
+
 What should happen
 
 ## Actual Behavior
+
 What actually happens
 
 ## Environment
+
 - OS: [e.g. Windows 10]
 - Browser: [e.g. Chrome 91]
 - Version: [e.g. 1.0.0]
 
 ## Additional Information
+
 Screenshots, logs, or other relevant information
 ```
 
@@ -408,18 +292,23 @@ Screenshots, logs, or other relevant information
 
 ```markdown
 ## Feature Description
+
 Clear description of the requested feature
 
 ## Use Case
+
 How this feature would be used
 
 ## Proposed Implementation
+
 Optional: suggest how to implement
 
 ## Alternatives Considered
+
 Other approaches that were considered
 
 ## Additional Information
+
 Mockups, examples, or other relevant information
 ```
 
@@ -428,6 +317,7 @@ Mockups, examples, or other relevant information
 ### Versioning
 
 We follow [Semantic Versioning](https://semver.org/):
+
 - **MAJOR**: Breaking changes
 - **MINOR**: New features (backward compatible)
 - **PATCH**: Bug fixes (backward compatible)
@@ -444,22 +334,26 @@ We follow [Semantic Versioning](https://semver.org/):
 ### Release Steps
 
 1. **Create Release Branch**
+
    ```bash
    git checkout -b release/v1.2.0
    ```
 
 2. **Update Version**
+
    ```bash
    # Update package.json and other version files
    npm version patch
    ```
 
 3. **Update Changelog**
+
    ```bash
    # Add changes to CHANGELOG.md
    ```
 
 4. **Create Release**
+
    ```bash
    git tag v1.2.0
    git push origin v1.2.0
@@ -484,6 +378,7 @@ We follow [Semantic Versioning](https://semver.org/):
 ## 🙏 Recognition
 
 Contributors will be recognized in:
+
 - **README.md**: List of contributors
 - **Release Notes**: Credit for significant contributions
 - **GitHub Profile**: Public contribution history
@@ -493,4 +388,4 @@ Contributors will be recognized in:
 
 **Thank you for contributing to the AI-Enhanced Smart Contract Auditor!** 🚀
 
-Your contributions help make Web3 more secure for everyone. 
+Your contributions help make Web3 more secure for everyone.
